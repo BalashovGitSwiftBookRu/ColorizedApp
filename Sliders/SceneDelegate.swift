@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Sliders
 //
-//  Created by Boris Giznevsky on 11/18/23.
+//  Created by Sergey Balashow on 11/18/23.
 //
 
 import UIKit
