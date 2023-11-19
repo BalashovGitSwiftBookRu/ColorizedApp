@@ -7,16 +7,18 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+class ViewController: UIViewController {
     
-    // Outlets
+    // Outlet for custom view
     
     @IBOutlet weak var myView: UIView!
     
+    // Outlets for labels
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var greenLabel: UILabel!
     @IBOutlet weak var blueLabel: UILabel!
     
+    // Outlets for sliders
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
