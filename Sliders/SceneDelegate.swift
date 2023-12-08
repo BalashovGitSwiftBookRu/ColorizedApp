@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  Sliders
+//  ColorizedApp
 //
 //  Created by Sergey Balashow on 11/18/23.
 //

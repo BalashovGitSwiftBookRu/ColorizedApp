@@ -1,12 +1,12 @@
 //
-//  ViewController.swift
-//  Sliders
+//  SettingsViewController.swift
+//  ColorizedApp
 //
 //  Created by Sergey Balashow on 11/18/23.
 //
 import UIKit
 
-final class ViewController: UIViewController {
+final class SettingsViewController: UIViewController {
     
     // MARK: - IB Outlets
     @IBOutlet weak var colorView: UIView!
@@ -19,16 +19,33 @@ final class ViewController: UIViewController {
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     
+    var viewColor: UIColor!
+    
+    private var red: CGFloat = 0
+    private var green: CGFloat = 0
+    private var blue: CGFloat = 0
+    private var alpha: CGFloat = 0
+    
     // MARK: - Origin Settings
     override func viewDidLoad() {
         super.viewDidLoad()
         
         colorView.layer.cornerRadius = 20
+        
+        // Извлекаем компоненты цвета
+        viewColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        // Устанавливаем значения слайдерам
+        redSlider.setValue(Float(red), animated: true)
+        greenSlider.setValue(Float(green), animated: true)
+        blueSlider.setValue(Float(blue), animated: true)
+        
         updateColor()
         
         redLabel.text = string(from: redSlider)
         greenLabel.text = string(from: greenSlider)
         blueLabel.text = string(from: blueSlider)
+        
     }
     
     // MARK: - Update labels.
@@ -67,3 +84,9 @@ final class ViewController: UIViewController {
     }
 }
 
+struct Color {
+    let red: CGFloat
+    let green: CGFloat
+    let blue: CGFloat
+}
+var customColor: Color!
