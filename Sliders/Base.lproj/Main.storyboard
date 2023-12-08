@@ -147,7 +147,7 @@
                     <connections>
                         <outlet property="blueLabel" destination="pvc-Yl-UQE" id="tUj-PB-Qht"/>
                         <outlet property="blueSlider" destination="ZmO-uT-iv4" id="qzE-FM-KzA"/>
-                        <outlet property="colorView" destination="jgl-Bx-Ncc" id="gxK-0z-6gx"/>
+                        <outlet property="colorizedView" destination="jgl-Bx-Ncc" id="gxK-0z-6gx"/>
                         <outlet property="greenLabel" destination="24f-f0-WJf" id="WgI-Kz-tYh"/>
                         <outlet property="greenSlider" destination="RZs-wO-C0i" id="nA2-0a-F30"/>
                         <outlet property="redLabel" destination="IVv-x3-JfG" id="ulb-jw-HUe"/>

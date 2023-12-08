@@ -9,7 +9,7 @@ import UIKit
 final class SettingsViewController: UIViewController {
     
     // MARK: - IB Outlets
-    @IBOutlet weak var colorView: UIView!
+    @IBOutlet weak var colorizedView: UIView!
     
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var greenLabel: UILabel!
@@ -19,7 +19,7 @@ final class SettingsViewController: UIViewController {
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     
-    var viewColor: UIColor!
+    var customColor: UIColor!
     
     private var red: CGFloat = 0
     private var green: CGFloat = 0
@@ -30,22 +30,23 @@ final class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        colorView.layer.cornerRadius = 20
+        colorizedView.layer.cornerRadius = 20
         
-        // Извлекаем компоненты цвета
-        viewColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        // Extract color components from the given color
+        customColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         
-        // Устанавливаем значения слайдерам
+        // Set values for sliders
         redSlider.setValue(Float(red), animated: true)
         greenSlider.setValue(Float(green), animated: true)
         blueSlider.setValue(Float(blue), animated: true)
         
-        updateColor()
+        // Update color for view
+        updateViewColor()
         
+        // Update values for labels
         redLabel.text = string(from: redSlider)
         greenLabel.text = string(from: greenSlider)
-        blueLabel.text = string(from: blueSlider)
-        
+        blueLabel.text = string(from: blueSlider)        
     }
     
     // MARK: - Update labels.
@@ -61,7 +62,7 @@ final class SettingsViewController: UIViewController {
         }
         
         // Update color for view.
-        updateColor()
+        updateViewColor()
     }
     
     // Convert slider value to String.
@@ -70,12 +71,12 @@ final class SettingsViewController: UIViewController {
     }
     
     // MARK: - Update color for view.
-    private func updateColor() {
+    private func updateViewColor() {
         let red = CGFloat(redSlider.value)
         let green = CGFloat(greenSlider.value)
         let blue = CGFloat(blueSlider.value)
         
-        colorView.backgroundColor = UIColor(
+        colorizedView.backgroundColor = UIColor(
             red: red,
             green: green,
             blue: blue,
@@ -83,10 +84,3 @@ final class SettingsViewController: UIViewController {
         )
     }
 }
-
-struct Color {
-    let red: CGFloat
-    let green: CGFloat
-    let blue: CGFloat
-}
-var customColor: Color!
