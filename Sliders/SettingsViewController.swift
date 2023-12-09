@@ -19,15 +19,19 @@ final class SettingsViewController: UIViewController {
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     
+    // MARK: - Public Properties
+    var customColor: UIColor!
+    weak var delegate: SettingsViewControllerDelegate?
+    
+    // MARK: - Private Properties
     private var red: CGFloat = 0
     private var green: CGFloat = 0
     private var blue: CGFloat = 0
     private var alpha: CGFloat = 0
     
-    var customColor: UIColor!    
-    weak var delegate: SettingsViewControllerDelegate?
     
-    // MARK: - Origin Settings
+    // MARK: - Override Methods
+    // Origin Settings
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,14 +54,15 @@ final class SettingsViewController: UIViewController {
         blueLabel.text = string(from: blueSlider)        
     }
     
-    // MARK: - Pass color back to MainVC
+    // MARK: - IB Actions
+    // Pass color back to MainVC
     @IBAction func doneButtonAction() {
         guard let color = colorizedView.backgroundColor else { return }
-        delegate?.passColor(for: color)
+        delegate?.passData(for: color)
         dismiss(animated: true)
     }
     
-    // MARK: - Update labels.
+    // Update labels
     @IBAction func sliderAction(_ sender: UISlider) {
         
         switch sender {
@@ -73,12 +78,13 @@ final class SettingsViewController: UIViewController {
         updateViewColor()
     }
     
+    // MARK: - Private Methods
     // Convert slider value to String.
     private func string(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
     }
     
-    // MARK: - Update color for view.
+    // Update color for view.
     private func updateViewColor() {
         let red = CGFloat(redSlider.value)
         let green = CGFloat(greenSlider.value)

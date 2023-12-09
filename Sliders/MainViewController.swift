@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SettingsViewControllerDelegate: AnyObject {
-    func passColor(for color: UIColor)
+    func passData(for color: UIColor)
 }
 
 final class MainViewController: UIViewController {
@@ -22,7 +22,7 @@ final class MainViewController: UIViewController {
 
 // MARK: - SettingsViewControllerDelegate
 extension MainViewController: SettingsViewControllerDelegate {
-    func passColor(for color: UIColor) {
+    func passData(for color: UIColor) {
         view.backgroundColor = color
     }
 }
