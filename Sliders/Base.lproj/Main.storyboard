@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="kpB-m9-Oui"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="yo9-Z7-86n">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="jkL-Hc-SSh">
@@ -39,14 +39,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgl-Bx-Ncc">
-                                <rect key="frame" x="16" y="40" width="361" height="128"/>
+                                <rect key="frame" x="16" y="80" width="361" height="128"/>
                                 <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jgl-Bx-Ncc" secondAttribute="height" multiplier="361:128" id="Wj2-K6-myB"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="yZl-cZ-xwv">
-                                <rect key="frame" x="16" y="222" width="361" height="90"/>
+                                <rect key="frame" x="16" y="262" width="361" height="90"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1O3-HF-ItT">
                                         <rect key="frame" x="0.0" y="0.0" width="52" height="90"/>
@@ -131,6 +131,19 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9i-kQ-FTa">
+                                <rect key="frame" x="71.666666666666686" y="747" width="250" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="euX-8L-qCz"/>
+                                    <constraint firstAttribute="height" constant="35" id="zPx-Ar-rIK"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="filled" title="Done">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="doneButtonAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="gxp-gJ-th2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="tintColor"/>
@@ -139,9 +152,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yZl-cZ-xwv" secondAttribute="trailing" constant="16" id="AIc-c0-Jd1"/>
                             <constraint firstItem="yZl-cZ-xwv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="D9k-sW-QZu"/>
                             <constraint firstItem="jgl-Bx-Ncc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="JQB-qv-D3m"/>
+                            <constraint firstItem="B9i-kQ-FTa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QTp-YH-gO2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="B9i-kQ-FTa" secondAttribute="bottom" constant="70" id="bTw-f4-O97"/>
                             <constraint firstItem="yZl-cZ-xwv" firstAttribute="top" secondItem="jgl-Bx-Ncc" secondAttribute="bottom" constant="54" id="eMl-4o-x3H"/>
                             <constraint firstItem="jgl-Bx-Ncc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f5X-9S-YkP"/>
-                            <constraint firstItem="jgl-Bx-Ncc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="nLH-sE-F7H"/>
+                            <constraint firstItem="jgl-Bx-Ncc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="nLH-sE-F7H"/>
                         </constraints>
                     </view>
                     <connections>
@@ -178,17 +193,20 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemCyanColor">
-            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -19,12 +19,13 @@ final class SettingsViewController: UIViewController {
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     
-    var customColor: UIColor!
-    
     private var red: CGFloat = 0
     private var green: CGFloat = 0
     private var blue: CGFloat = 0
     private var alpha: CGFloat = 0
+    
+    var customColor: UIColor!    
+    weak var delegate: SettingsViewControllerDelegate?
     
     // MARK: - Origin Settings
     override func viewDidLoad() {
@@ -47,6 +48,13 @@ final class SettingsViewController: UIViewController {
         redLabel.text = string(from: redSlider)
         greenLabel.text = string(from: greenSlider)
         blueLabel.text = string(from: blueSlider)        
+    }
+    
+    // MARK: - Pass color back to MainVC
+    @IBAction func doneButtonAction() {
+        guard let color = colorizedView.backgroundColor else { return }
+        delegate?.passColor(for: color)
+        dismiss(animated: true)
     }
     
     // MARK: - Update labels.
